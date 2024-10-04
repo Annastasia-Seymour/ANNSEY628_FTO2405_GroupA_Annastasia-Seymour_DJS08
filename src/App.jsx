@@ -13,11 +13,16 @@
  * Review challenge: do all the CSS yourself based on the design
  * linked in the slides.
  */
-
+import React from 'react'
+import ReactDOM from "react-dom/client"
 import { BrowserRouter , Routes, Route, Link } from 'react-router-dom'
 import Home from "../pages/Home.jsx"
 import About from ".././pages/About.jsx"
 import Vans from '../pages/Vans.jsx'
+import "../server.js"
+import VanDetail from "../pages/VanDetail.jsx"
+
+
 
 function App() {
 
@@ -35,9 +40,11 @@ function App() {
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/vans" element={<Vans />}/>
+          <Route path="/vans/:id" element={<VanDetail />}/>
         </Routes>
       </BrowserRouter>
-  )
+  )////id is like a parameter for the site to know that if there is anything
+          // following after it should display "VanDetail" component content.
 }
 
 export default App
