@@ -21,6 +21,7 @@ import About from ".././pages/About.jsx"
 import Vans from '../pages/Vans.jsx'
 import "../server.js"
 import VanDetail from "../pages/VanDetail.jsx"
+import Layout from "../components/Layout.jsx"
 
 
 
@@ -28,20 +29,15 @@ function App() {
 
   return (
     <BrowserRouter>
-      <header>
-      <Link to="/">#VANLIFE</Link>
-        <nav>
-          <Link to="/about">About</Link>
-          <Link to="/vans">Vans</Link>
-        </nav>
-      </header>
-    
-        <Routes>
+    <Routes>
+      <Route element={<Layout/>}>{/*nested inside to keep the copy of this url param*/}
+          {/* <Route path="/" element={<Host />}/> wasnt supposed to add this here */}
           <Route path="/" element={<Home />}/>
           <Route path="/about" element={<About />}/>
           <Route path="/vans" element={<Vans />}/>
           <Route path="/vans/:id" element={<VanDetail />}/>
-        </Routes>
+        </Route>
+      </Routes>
       </BrowserRouter>
   )////id is like a parameter for the site to know that if there is anything
           // following after it should display "VanDetail" component content.
